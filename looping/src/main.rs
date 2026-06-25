@@ -1,6 +1,6 @@
 use std::io;
 fn main() {
-    let solution= String::from("The letter e");
+    let solution= "The letter e";
     let mut count = 0;
    loop{
     count += 1;
@@ -8,7 +8,7 @@ fn main() {
 
   let mut input = String::new();
 
-    io::stdin().read_line(&mut input);
+    io::stdin().read_line(&mut input).unwrap();
     if input.trim() ==solution {
         println!("Number of trials:{}",count);
         break;
