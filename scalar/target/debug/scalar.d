@@ -1,1 +1,0 @@
-/home/mhilli/Desktop/learn-rust-with-me/rust-piscine/scalar/target/debug/scalar: /home/mhilli/Desktop/learn-rust-with-me/rust-piscine/scalar/src/lib.rs /home/mhilli/Desktop/learn-rust-with-me/rust-piscine/scalar/src/main.rs
