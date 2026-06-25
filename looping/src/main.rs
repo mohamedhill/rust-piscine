@@ -10,7 +10,7 @@ fn main() {
 
     io::stdin().read_line(&mut input).unwrap();
     if input.trim() ==solution {
-        println!("Number of trials:{}",count);
+        println!("Number of trials: {count}");
         break;
     }
 
