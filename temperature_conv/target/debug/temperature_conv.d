@@ -1,1 +1,0 @@
-/home/mhilli/Desktop/learn-rust-with-me/rust-piscine/temperature_conv/target/debug/temperature_conv: /home/mhilli/Desktop/learn-rust-with-me/rust-piscine/temperature_conv/src/lib.rs /home/mhilli/Desktop/learn-rust-with-me/rust-piscine/temperature_conv/src/main.rs
