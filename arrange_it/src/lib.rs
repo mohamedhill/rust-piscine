@@ -1,27 +1,29 @@
-
-fn remove_and_return(s:&mut String)->i32{
-    for (i,ch) in s.chars().enumerate(){
-        if ch>='0'&& ch<='9'{
-            s.remove(i);
-            return ch.to_digit(10).unwrap() as i32;
-        }
-    }
-    0
-}
-
 pub fn arrange_phrase(phrase: &str) -> String {
-    let iter: Vec<String> = phrase
-        .split(' ')
-        .map(String::from)
-        .collect();
+    let mut words = phrase
+        .split_whitespace()
+        .map(|word| {
+            let mut number = 0;
+            let text: String = word
+                .chars()
+                .filter(|c| {
+                    if c.is_ascii_digit() {
+                        number = c.to_digit(10).unwrap();
+                        false
+                    } else {
+                        true
+                    }
+                })
+                .collect();
 
-    let mut arr: Vec<String> = vec![String::new(); iter.len()];
+            (number, text)
+        })
+        .collect::<Vec<_>>();
 
-    for s in &iter {
-        let mut ss = s.to_owned();
-        let i = remove_and_return(&mut ss);
-        arr[(i as usize) - 1] = ss;
-    }
+    words.sort_by(|a, b| a.0.cmp(&b.0));
 
-    arr.join(" ")
+    words
+        .into_iter()
+        .map(|(_, word)| word)
+        .collect::<Vec<_>>()
+        .join(" ")
 }
