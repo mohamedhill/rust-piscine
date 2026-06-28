@@ -1,23 +1,27 @@
-use std::collections::HashMap;
+
+fn remove_and_return(s:&mut String)->i32{
+    for (i,ch) in s.chars().enumerate(){
+        if ch>='0'&& ch<='9'{
+            s.remove(i);
+            return ch.to_digit(10).unwrap() as i32;
+        }
+    }
+    0
+}
 
 pub fn arrange_phrase(phrase: &str) -> String {
-    let mut data = HashMap::new();
-    let mut arr = Vec::new();
-    let mut res = String::new();
-    for word in phrase.split_whitespace() {
-        let digit: String = word.chars().filter(|c| c.is_digit(10)).collect();
-        let nb: u32 = digit.parse().expect("Not a valid number!");
-        let filtered_string: String = word.chars().filter(|c: &char| !c.is_numeric()).collect();
-        data.insert(nb, filtered_string);
+    let iter: Vec<String> = phrase
+        .split(' ')
+        .map(String::from)
+        .collect();
+
+    let mut arr: Vec<String> = vec![String::new(); iter.len()];
+
+    for s in &iter {
+        let mut ss = s.to_owned();
+        let i = remove_and_return(&mut ss);
+        arr[(i as usize) - 1] = ss;
     }
-    for (key, _) in data.iter() {
-        arr.push(key);
-    }
-    arr.sort();
-    for i in arr {
-        res.push_str(data.get(&i).unwrap());
-        res.push(' ');
-    }
-    res.pop();
-    res
+
+    arr.join(" ")
 }
