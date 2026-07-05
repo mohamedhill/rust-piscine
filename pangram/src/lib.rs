@@ -1,12 +1,12 @@
 pub fn is_pangram(s: &str) -> bool {
-   let alp = String::from("abcdefjhigklmnopqrstuvwxyz");
-    for i in alp.chars(){
+    let alp = "abcdefghijklmnopqrstuvwxyz";
+    let s = s.to_lowercase();
 
-        if !s.contains(i){
-            return false
+    for c in alp.chars() {
+        if !s.contains(c) {
+            return false;
         }
-
     }
-true
 
+    true
 }
