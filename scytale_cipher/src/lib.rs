@@ -1,5 +1,5 @@
 pub fn scytale_cipher(message: &str, i: u32) -> String {
-
+println!("{}",message);
     if message.trim().is_empty() {
         return "".to_string();
     }
