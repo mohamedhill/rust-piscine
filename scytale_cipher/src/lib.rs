@@ -1,4 +1,4 @@
-pub fn scytale_cipher(message: String, i: u32) -> String {
+pub fn scytale_cipher(message: &str, i: u32) -> String {
 
     if message.trim().is_empty() {
         return "".to_string();
