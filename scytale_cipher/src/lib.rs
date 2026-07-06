@@ -21,7 +21,7 @@ pub fn scytale_cipher(message: String, i: u32) -> String {
         } 
 
 
-  s.trim_end_matches(' ').to_string();
-
+ let s =  s.trim_end_matches(' ').to_string();
+s
     
 }
